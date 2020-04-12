@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Nav</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="file:///C:/Users/Nikola/Documents/Projects/nav-menu/nav.css">
+</head>
+<body>
+
+<nav id="navbar" class="nik-navbar nik-navbar-expand-lg">
+    <button id="navbarToggler" class="nik-navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="collapse nik-navbar-collapse" id="navbarSupportedContent">
+        <ul class="nik-navbar-nav">
+            <li class="nik-nav-item active">
+                <a class="nik-nav-link" href="#">Home</a>
+            </li>
+            <li class="nik-nav-item">
+                <a class="nik-nav-link" href="#">About</a>
+            </li>
+            <li class="nik-nav-item">
+                <a class="nik-nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script type='text/javascript'>
+    var navbarToggler = document.querySelector('#navbarToggler');
+    if (navbarToggler) {
+        navbarToggler.addEventListener('click', function(e) {
+            var isOpening = ! this.classList.contains('collapsed');
+            this.classList.toggle('collapsed');
+            this.classList.toggle('active');
+            this.classList.toggle('fixed');
+            this.setAttribute("aria-expanded", (isOpening) ? "true" : "false");
+            var dataTarget = this.getAttribute('data-target');
+            var target = document.querySelector(dataTarget);
+            if (target) {
+                target.style.width = (isOpening) ? '100%' : '0';
+                // Remove focus
+                document.activeElement.blur();
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>
